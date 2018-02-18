@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Courses</title>
+</head>
+<body>
+	<div class="container">
+
+
+		<h2>Country</h2>
+		
+		<form class="form-horizontal" th:object="${country}" th:action="@{/countries}" method="post">
+		
+		<input type="text" class="form-control" th:field="*{id}"/>
+		<input type="text" class="form-control" th:field="*{name}"/>
+		<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+		
+	</div>
+</body>
+</html>
