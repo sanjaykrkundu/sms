@@ -45,8 +45,8 @@ public class Student {
 	@Pattern(regexp = "[6789][0-9]{9}")
 	private String phone;
 
-	@Size(min = 10, max = 10)
-	@Pattern(regexp = "[6789][0-9]{9}")
+	@Size(min = 0, max = 10)
+	@Pattern(regexp = "([6789][0-9]{9})")
 	private String altPhone;
 
 	@Email
@@ -169,9 +169,12 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", dob=" + dob + ", father="
-				+ father + ", mother=" + mother + ", uid=" + uid + ", phone=" + phone + ", altPhone=" + altPhone
-				+ ", email=" + email + ", state=" + state + ", city=" + city + ", addr=" + addr + "]";
+		return "{\n\t\"studentId\":" + studentId + ",\n\t \"studentName\":" + studentName + ",\n\t \"dob\":" + dob
+				+ ",\n\t \"father\":" + father + ",\n\t \"mother\":" + mother + ",\n\t \"uid\":" + uid
+				+ ",\n\t \"phone\":" + phone + ",\n\t \"altPhone\":" + altPhone + ",\n\t \"email\":" + email
+				+ ",\n\t \"state\":" + state + ",\n\t \"city\":" + city + ",\n\t \"addr\":" + addr + "\n}";
 	}
+
+	
 
 }

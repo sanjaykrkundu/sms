@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Courses</title>
+</head>
+<body>
+	<div class="container">
+
+
+		<h2>Students</h2>
+		<a href="/sms/">Home</a>
+
+		<form action="#" th:action="@{/students}" method="get">
+			<input type="text" value="" name="query" /> <input type="submit" />
+		</form>
+
+
+		<table class="table table-striped">
+			<tr>
+				<th>Student Id</th>
+				<th>Name</th>
+				<th>Father</th>
+				<th>Mother</th>
+				<th>DOB</th>
+				<th>UID</th>
+				<th>Phone</th>
+				<th>Email</th>
+				<th>Address</th>
+				<th>Action</th>
+			</tr>
+			<tr th:each="student : ${data}">
+				<td th:text="${student.studentId}"></td>
+				<td th:text="${student.studentName}"></td>
+				<td th:text="${student.father}"></td>
+				<td th:text="${student.mother}"></td>
+				<td th:text="${#dates.format(student.dob, 'dd/MM/yyyy')}"></td>
+				<td th:text="${student.uid}"></td>
+				<td>
+					<span th:text="${student.phone}+','"></span><br />
+					<span th:text="${student.altPhone}"></span>
+				</td>
+				<td th:text="${student.email}"></td>
+				<td>
+					<span th:text="${student.addr} + ',' + ${student.city}"></span><br/>
+					<span th:text="${student.state}"></span>
+				</td>
+				<td><a th:href="@{'/students/' + ${student.studentId}}">Edit</a></td>
+
+			</tr>
+		</table>
+
+		<b th:text="${'Total Students : ' + data.totalElements}"></b>
+
+		<ul>
+			<li
+				th:each="i:${#numbers.sequence(1,data.totalPages==0?1:data.totalPages)}"><a
+				th:text="${i}" th:href="@{/students/(page=${i})}"></a></li>
+		</ul>
+
+		<a href="./students/new">New Student</a>
+
+	</div>
+</body>
+</html>

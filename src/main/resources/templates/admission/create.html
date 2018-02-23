@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Courses</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+</head>
+<body>
+	<div class="container">
+
+		<a href="/sms/">Home</a> <a href="/sms/courses">Courses List</a>
+
+
+		<div>
+			<h2>Create</h2>
+			<form action="#" th:action="@{/admissions}" th:object="${admission}"
+				method="post">
+				<p>
+					Id: <input type="text" th:field="*{admissionId}" />
+				</p>
+				<p>
+					Student : <input type="text" th:field="*{studentId}" />
+				</p>
+				<p>
+					Course: <input type="text" th:field="*{courseId}" />
+				</p>
+
+				<p>
+					<input type="submit" value="Submit" /> <input type="reset"
+						value="Reset" />
+				</p>
+			</form>
+			
+			<input type="text" id="searchStudent" />
+			<div id="stdlist"></div>
+			
+		</div>
+
+	</div>
+</body>
+</html>

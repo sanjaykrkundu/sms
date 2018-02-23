@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Courses</title>
+</head>
+<body>
+	<div class="container">
+
+
+		<a href="/sms/">Home</a> <a href="/sms/students">Students List</a>
+
+		<div>
+			<h2>Create</h2>
+			<form action="#" th:action="@{/students}" th:object="${student}"
+				method="post">
+				<p>
+					Student ID : <input type="text" th:field="*{studentId}" />
+				</p>
+				<p>
+					Name : <input type="text" th:field="*{studentName}" />
+				</p>
+				<p>
+					Father : <input type="text" th:field="*{father}" />
+				</p>
+				<p>
+					Mother : <input type="text" th:field="*{mother}" />
+				</p>
+				<p>
+					DOB : <input type="text" th:field="*{dob}" />
+				</p>
+				<p>
+					UID : <input type="text" th:field="*{uid}" />
+				</p>
+				<p>
+					Phone : <input type="text" th:field="*{phone}" />
+				</p>
+				<p>
+					Alt Phone : <input type="text" th:field="*{altPhone}" />
+				</p>
+				<p>
+					Email : <input type="email" th:field="*{email}" />
+				</p>
+				<p>
+					Address : <input type="text" th:field="*{addr}" />
+				</p>
+				<p>
+					City : <input type="text" th:field="*{city}" />
+				</p>
+				<p>
+					State : <input type="text" th:field="*{state}" />
+				</p>
+				<p>
+					<input type="submit" value="Submit" /> <input type="reset"
+						value="Reset" />
+				</p>
+			</form>
+		</div>
+
+	</div>
+</body>
+</html>

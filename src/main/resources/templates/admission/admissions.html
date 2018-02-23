@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<title>Admissions</title>
+</head>
+<body>
+	<div class="container">
+
+		<h2>Admissions</h2>
+		<a href="/sms/">Home</a>
+
+
+		<form action="#" th:action="@{/admissions}" method="get">
+			<input type="text" value="" name="query" /> <input type="submit" />
+		</form>
+
+
+		<table class="table table-striped">
+			<tr>
+				<th>Admission ID</th>
+				<th>Student ID</th>
+				<th>Course Code</th>
+				<th>Date</th>
+				<th>Action</th>
+			</tr>
+			<tr th:each="admission : ${data}">
+				<td th:text="${admission.admissionId}"></td>
+				
+				<td th:text="${admission.studentId}"></td>
+				<td th:text="${admission.courseId}"></td>
+				<td th:text="${#dates.format(admission.admissionDate, 'dd/MM/yyyy')}"></td>
+				<td><a th:href="@{'/admissions/' + ${admission.admissionId}}">Edit</a></td>
+
+			</tr>
+		</table>
+
+		<b th:text="${'Total Admissions : ' + data.totalElements}"></b>
+
+		<ul>
+			<li
+				th:each="i:${#numbers.sequence(1,data.totalPages==0?1:data.totalPages)}"><a
+				th:text="${i}" th:href="@{/admissions/(page=${i})}"></a></li>
+		</ul>
+
+		<a href="./admissions/new">New Admission</a>
+	</div>
+</body>
+
+
+</html>
